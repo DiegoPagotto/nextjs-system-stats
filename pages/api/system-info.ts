@@ -8,6 +8,9 @@ export default async function handler(
     try {
         const cpu = await si.cpu();
         const mem = await si.mem();
+        const memLayout = await si.memLayout();
+        const memoryModules = memLayout.length
+        const memoryModuleInfo = memoryModules > 0 ? memLayout[0] : null;
         const gpu = await si.graphics();
         const currentLoad = await si.currentLoad();
         const temp = await si.cpuTemperature();
@@ -16,6 +19,8 @@ export default async function handler(
             cpu,
             gpu,
             mem,
+            memoryModules,
+            memoryModuleInfo,
             currentLoad,
             temp,
         });
