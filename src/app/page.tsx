@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import SystemInfoCard from './components/SystemInfoCard/system-info-card';
 
 export default function Home() {
