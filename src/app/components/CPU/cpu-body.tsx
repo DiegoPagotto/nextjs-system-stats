@@ -21,7 +21,7 @@ const CPUComponent = ({ cpuInfo }: CPUComponentProps) => {
                     <b>Cores</b>: {cpuInfo.physicalCores}
                 </p>
                 <p>
-                    <b>Threads</b>: {cpuInfo.cores}
+                    <b>Threads</b>: {cpuInfo.cores.length}
                 </p>
             </div>
         </div>

@@ -1,5 +1,6 @@
 import { cpu } from '@/app/types/cpu';
 import { memory } from '@/app/types/memory';
+import { get } from 'http';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import si from 'systeminformation';
 
@@ -10,7 +11,6 @@ const getCpuInfo = async () => {
         manufacturer: cpu.manufacturer,
         brand: cpu.brand,
         speed: cpu.speed,
-        cores: cpu.cores,
         physicalCores: cpu.physicalCores,
         processors: cpu.processors,
     } as cpu;
@@ -31,6 +31,12 @@ const getMemoryInfo = async () => {
     } as memory;
 };
 
+const getCurrentLoad = async (cpuInfo: cpu) => {
+    const currentLoad = await si.currentLoad();
+    cpuInfo.cores = currentLoad.cpus;
+    return currentLoad;
+};
+
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
@@ -40,14 +46,13 @@ export default async function handler(
         const memory = await getMemoryInfo();
 
         const gpu = await si.graphics();
-        const currentLoad = await si.currentLoad();
+        await getCurrentLoad(cpu);
         const temp = await si.cpuTemperature();
 
         res.status(200).json({
             cpu,
             gpu,
             memory,
-            currentLoad,
             temp,
         });
     } catch (error) {
