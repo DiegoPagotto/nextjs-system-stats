@@ -26,6 +26,7 @@ const ProgressBar = ({ usedPercentage }: ProgressBarProps) => {
                 className={`${progressBarColor} font-medium text-blue-100 text-center p-0.5 leading-none rounded-full`}
                 style={{
                     width: `${formattedPercentage}%`,
+                    minWidth: '1.5rem',
                     fontSize: usedPercentage > 10 ? '0.75rem' : '0.6rem',
                     lineHeight: '1.2rem',
                 }}
