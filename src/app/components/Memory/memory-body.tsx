@@ -2,7 +2,7 @@ import { memory } from '@/app/types/memory';
 import {
     bytesToGigaBytes,
     calculateUsedPercentage,
-} from '@/app/utils/calculation-utils';
+} from '@/utils/calculation-utils';
 import { useState } from 'react';
 import ProgressBar from '../ProgressBar/progress-bar';
 
