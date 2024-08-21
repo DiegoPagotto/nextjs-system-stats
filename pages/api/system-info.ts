@@ -1,6 +1,5 @@
 import { cpu } from '@/app/types/cpu';
 import { memory } from '@/app/types/memory';
-import { get } from 'http';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import si from 'systeminformation';
 
