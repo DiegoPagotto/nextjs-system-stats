@@ -1,7 +1,24 @@
+import si from 'systeminformation';
 import { cpu } from '@/app/types/cpu';
 import { memory } from '@/app/types/memory';
 import type { NextApiRequest, NextApiResponse } from 'next';
 import si from 'systeminformation';
+
+export const getSystemInfo = async () => {
+    const cpu = await getCpuInfo();
+    const memory = await getMemoryInfo();
+
+    const gpu = await si.graphics();
+    await getCurrentLoad(cpu);
+    const temp = await si.cpuTemperature();
+
+    return {
+        cpu,
+        gpu,
+        memory,
+        temp,
+    };
+};
 
 const getCpuInfo = async () => {
     const cpu = await si.cpu();
@@ -35,26 +52,3 @@ const getCurrentLoad = async (cpuInfo: cpu) => {
     cpuInfo.cores = currentLoad.cpus;
     return currentLoad;
 };
-
-export default async function handler(
-    req: NextApiRequest,
-    res: NextApiResponse
-) {
-    try {
-        const cpu = await getCpuInfo();
-        const memory = await getMemoryInfo();
-
-        const gpu = await si.graphics();
-        await getCurrentLoad(cpu);
-        const temp = await si.cpuTemperature();
-
-        res.status(200).json({
-            cpu,
-            gpu,
-            memory,
-            temp,
-        });
-    } catch (error) {
-        res.status(500).json({ error: 'Failed to fetch system information' });
-    }
-}
