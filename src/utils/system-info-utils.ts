@@ -2,7 +2,6 @@ import si from 'systeminformation';
 import { cpu } from '@/app/types/cpu';
 import { memory } from '@/app/types/memory';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import si from 'systeminformation';
 
 export const getSystemInfo = async () => {
     const cpu = await getCpuInfo();
