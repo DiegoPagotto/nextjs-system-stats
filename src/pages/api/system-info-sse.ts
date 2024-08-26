@@ -5,6 +5,8 @@ export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
+    const SYSTEM_INFO_READING_INTERVAL = 5000;
+
     res.setHeader('Content-Type', 'text/event-stream');
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
@@ -26,7 +28,7 @@ export default async function handler(
 
     const intervalId = setInterval(async () => {
         await sendSystemInfo();
-    }, 15000);
+    }, SYSTEM_INFO_READING_INTERVAL);
 
     req.on('close', () => {
         clearInterval(intervalId);
