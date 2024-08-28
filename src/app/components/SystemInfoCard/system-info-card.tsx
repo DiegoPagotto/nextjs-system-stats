@@ -6,6 +6,7 @@ import CPUComponent from '../CPU/cpu-body';
 import { SystemInfo } from '@/app/types/system-info';
 import MemoryComponent from '../Memory/memory-body';
 import Loading from '../Loading/loading';
+import toast from 'react-hot-toast';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -15,6 +16,7 @@ const SystemInfoCard = () => {
 
         eventSource.onmessage = (event) => {
             console.log('Received system info', event);
+            toast.success('System info updated');
             setSystemInfo(JSON.parse(event.data));
         };
 
