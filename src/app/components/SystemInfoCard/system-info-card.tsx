@@ -11,13 +11,16 @@ const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
 
     useEffect(() => {
-        async function fetchSystemInfo() {
-            const response = await fetch('/api/system-info');
-            const data = await response.json();
-            setSystemInfo(data);
-        }
+        const eventSource = new EventSource('/api/system-info-sse');
 
-        fetchSystemInfo();
+        eventSource.onmessage = (event) => {
+            console.log('Received system info', event);
+            setSystemInfo(JSON.parse(event.data));
+        };
+
+        return () => {
+            eventSource.close();
+        };
     }, []);
 
     return (
