@@ -8,7 +8,17 @@ export default function Home() {
         <main className="flex min-h-screen flex-col items-center justify-between p-12 bg-slate-950">
             <SystemInfoCard />
 
-            <Toaster />
+            <Toaster
+                position="top-right"
+                toastOptions={{
+                    duration: 2000,
+                    style: {
+                        background: '#0f172a',
+                        color: '#fff',
+                        padding: '16px 24px',
+                    },
+                }}
+            />
         </main>
     );
 }
