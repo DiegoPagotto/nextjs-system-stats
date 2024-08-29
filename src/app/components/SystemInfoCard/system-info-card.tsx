@@ -20,6 +20,11 @@ const SystemInfoCard = () => {
             setSystemInfo(JSON.parse(event.data));
         };
 
+        eventSource.onerror = (error) => {
+            console.error('EventSource failed:', error);
+            toast.error('Failed to connect to the server');
+        };
+
         return () => {
             eventSource.close();
         };
