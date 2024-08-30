@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 NextJS System Stats
 
-## Getting Started
+Bem-vindo ao **NextJS System Stats**! Este projeto é uma aplicação desenvolvida com **Next.js** que utiliza **Server-Sent Events (SSE)** para fornecer informações em tempo real sobre o sistema de um Raspberry Pi. 📊
 
-First, run the development server:
+## 📋 Sobre o Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O **NextJS System Stats** é uma ferramenta que permite monitorar o desempenho do seu Raspberry Pi em tempo real. Ele coleta dados sobre o uso da CPU, memória, temperatura e outras métricas importantes, exibindo essas informações de forma dinâmica e atualizada.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   **Next.js**: Um framework React para desenvolvimento de aplicações web modernas.
+-   **Server-Sent Events (SSE)**: Uma tecnologia que permite que o servidor envie atualizações automáticas para o cliente, mantendo os dados sempre atualizados.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## 📦 Instalação
 
-## Learn More
+Para rodar o projeto localmente, siga os passos abaixo:
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone o repositório:
 
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    git clone https://github.com/DiegoPagotto/nextjs-system-stats
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Navegue até o diretório do projeto:
 
-## Deploy on Vercel
+    ```bash
+    cd nextjs-system-stats
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Instale as dependências:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```bash
+    npm install
+    ```
+
+4. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+
+## 🚀 Como Usar
+
+Após iniciar o servidor de desenvolvimento, abra o navegador e acesse `http://localhost:3000`. Você verá a interface do **NextJS System Stats** exibindo as informações do sistema em tempo real.
+
+## 📡 Funcionalidades
+
+-   **Monitoramento em Tempo Real**: Veja as métricas do sistema atualizadas em tempo real.
+-   **Interface Intuitiva**: Uma interface amigável e fácil de usar.
+-   **Tecnologia SSE**: Utiliza Server-Sent Events para manter os dados sempre atualizados sem a necessidade de recarregar a página.
+
+## 🤝 Contribuição
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+## 📄 Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+Feito com ❤️ por [Diego Pagotto](https://github.com/DiegoPagotto)
