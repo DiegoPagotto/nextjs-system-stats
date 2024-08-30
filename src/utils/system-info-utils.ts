@@ -1,6 +1,7 @@
 import si from 'systeminformation';
 import { cpu } from '@/app/types/cpu';
 import { memory } from '@/app/types/memory';
+import { disk } from '@/app/types/disk';
 
 export const getSystemInfo = async () => {
     const cpu = await getCpuInfo();
