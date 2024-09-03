@@ -2,6 +2,7 @@ import si from 'systeminformation';
 import { cpu } from '@/app/types/cpu';
 import { memory } from '@/app/types/memory';
 import { disk } from '@/app/types/disk';
+import { bytesToGigaBytes } from './calculation-utils';
 
 export const getSystemInfo = async () => {
     const cpu = await getCpuInfo();
@@ -62,9 +63,10 @@ const getDiskInfo = async () => {
         type: disk.type,
         name: disk.name,
         vendor: disk.vendor,
-        size: disk.size,
-        used: fsSize[index]?.used || 0,
-        available: fsSize[index]?.size - fsSize[index]?.used || 0,
+        size: Number(bytesToGigaBytes(disk.size)), // Convert size to number
+        used: bytesToGigaBytes(fsSize[index]?.used) || 0,
+        available:
+            bytesToGigaBytes(fsSize[index]?.size - fsSize[index]?.used) || 0,
         mount: fsSize[index]?.mount || '',
-    })) as disk[];
+    })) as unknown as disk[];
 };
