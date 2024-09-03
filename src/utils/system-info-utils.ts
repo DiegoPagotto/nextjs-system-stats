@@ -10,14 +10,14 @@ export const getSystemInfo = async () => {
     const gpu = await si.graphics();
     await getCurrentLoad(cpu);
     const temp = await si.cpuTemperature();
-    const disk = await getDiskInfo();
+    const disks = await getDiskInfo();
 
     return {
         cpu,
         gpu,
         memory,
         temp,
-        disk,
+        disks,
     };
 };
 
