@@ -19,13 +19,13 @@ const MemoryComponent = ({ memoryInfo }: MemoryComponentProps) => {
         <div>
             <div className="ram-usage mt-3">
                 <p>
-                    <b>Tipo</b>: {memoryInfo.type}
+                    <b>Type</b>: {memoryInfo.type}
                 </p>
                 <p>
-                    <b>Voltagem</b>: {memoryInfo.voltageConfigured} V
+                    <b>Voltage</b>: {memoryInfo.voltageConfigured} V
                 </p>
                 <p>
-                    <b>Módulos</b>: {memoryInfo.memoryModules}
+                    <b>Modules</b>: {memoryInfo.memoryModules}
                 </p>
                 <ProgressBar
                     usedPercentage={ramUsage}
