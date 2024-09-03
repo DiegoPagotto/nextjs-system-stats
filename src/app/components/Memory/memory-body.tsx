@@ -27,11 +27,12 @@ const MemoryComponent = ({ memoryInfo }: MemoryComponentProps) => {
                 <p>
                     <b>Módulos</b>: {memoryInfo.memoryModules}
                 </p>
-                <ProgressBar usedPercentage={ramUsage} />
-                <p className="text-right mt-1">
-                    {bytesToGigaBytes(memoryInfo.used)} GB /{' '}
-                    {bytesToGigaBytes(memoryInfo.total)} GB
-                </p>
+                <ProgressBar
+                    usedPercentage={ramUsage}
+                    subtitle={`${bytesToGigaBytes(
+                        memoryInfo.used
+                    )} GB / ${bytesToGigaBytes(memoryInfo.total)} GB`}
+                />
             </div>
         </div>
     );
