@@ -6,7 +6,6 @@ interface DiskComponentProps {
 }
 
 const DiskComponent = ({ disks = [] }: DiskComponentProps) => {
-    console.table(disks);
     return (
         <>
             {disks.map((disk, index) => (
