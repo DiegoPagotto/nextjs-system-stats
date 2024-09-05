@@ -7,6 +7,7 @@ import { SystemInfo } from '@/app/types/system-info';
 import MemoryComponent from '../Memory/memory-body';
 import Loading from '../Loading/loading';
 import toast from 'react-hot-toast';
+import DiskComponent from '../Disk/disk-body';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -50,6 +51,10 @@ const SystemInfoCard = () => {
                         body={
                             <MemoryComponent memoryInfo={systemInfo.memory} />
                         }
+                    />
+                    <SystemComponent
+                        title="Disk"
+                        body={<DiskComponent disks={systemInfo.disks} />}
                     />
                 </>
             )}
