@@ -39,16 +39,16 @@ const SystemInfoCard = () => {
                 <>
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 text-center">
-                            System Stats
+                            📊 System Stats
                         </div>
                     </div>
-                    <SystemComponent title="CPU">
+                    <SystemComponent title="CPU" emoji="💻">
                         <CPUComponent cpuInfo={systemInfo.cpu} />
                     </SystemComponent>
-                    <SystemComponent title="Memory">
+                    <SystemComponent title="Memory" emoji="🧠">
                         <MemoryComponent memoryInfo={systemInfo.memory} />
                     </SystemComponent>
-                    <SystemComponent title="Disk">
+                    <SystemComponent title="Disk" emoji="💾">
                         <DiskComponent disks={systemInfo.disks} />
                     </SystemComponent>
                 </>
