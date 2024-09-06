@@ -42,20 +42,15 @@ const SystemInfoCard = () => {
                             System Stats
                         </div>
                     </div>
-                    <SystemComponent
-                        title="CPU"
-                        body={<CPUComponent cpuInfo={systemInfo.cpu} />}
-                    />
-                    <SystemComponent
-                        title="Memory"
-                        body={
-                            <MemoryComponent memoryInfo={systemInfo.memory} />
-                        }
-                    />
-                    <SystemComponent
-                        title="Disk"
-                        body={<DiskComponent disks={systemInfo.disks} />}
-                    />
+                    <SystemComponent title="CPU">
+                        <CPUComponent cpuInfo={systemInfo.cpu} />
+                    </SystemComponent>
+                    <SystemComponent title="Memory">
+                        <MemoryComponent memoryInfo={systemInfo.memory} />
+                    </SystemComponent>
+                    <SystemComponent title="Disk">
+                        <DiskComponent disks={systemInfo.disks} />
+                    </SystemComponent>
                 </>
             )}
         </div>
