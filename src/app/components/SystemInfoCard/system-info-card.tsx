@@ -8,6 +8,7 @@ import MemoryComponent from '../Memory/memory-body';
 import Loading from '../Loading/loading';
 import toast from 'react-hot-toast';
 import DiskComponent from '../Disk/disk-body';
+import { Emojis } from '@/app/enums/emojis';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -39,16 +40,16 @@ const SystemInfoCard = () => {
                 <>
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 text-center">
-                            📊 System Stats
+                            {Emojis.Stats} System Stats
                         </div>
                     </div>
-                    <SystemComponent title="CPU" emoji="💻">
+                    <SystemComponent title="CPU" emoji={Emojis.CPU}>
                         <CPUComponent cpuInfo={systemInfo.cpu} />
                     </SystemComponent>
-                    <SystemComponent title="Memory" emoji="🧠">
+                    <SystemComponent title="Memory" emoji={Emojis.Memory}>
                         <MemoryComponent memoryInfo={systemInfo.memory} />
                     </SystemComponent>
-                    <SystemComponent title="Disk" emoji="💾">
+                    <SystemComponent title="Disk" emoji={Emojis.Disk}>
                         <DiskComponent disks={systemInfo.disks} />
                     </SystemComponent>
                 </>
