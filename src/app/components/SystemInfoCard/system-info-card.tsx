@@ -9,6 +9,7 @@ import Loading from '../Loading/loading';
 import toast from 'react-hot-toast';
 import DiskComponent from '../Disk/disk-body';
 import { Emojis } from '@/app/enums/emojis';
+import OSComponent from '../OS/os';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -51,6 +52,9 @@ const SystemInfoCard = () => {
                     </SystemComponent>
                     <SystemComponent title="Disk" emoji={Emojis.Disk}>
                         <DiskComponent disks={systemInfo.disks} />
+                    </SystemComponent>
+                    <SystemComponent title="OS" emoji={Emojis.OS}>
+                        <OSComponent osInfo={systemInfo.os} />
                     </SystemComponent>
                 </>
             )}
