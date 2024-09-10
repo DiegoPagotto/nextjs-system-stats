@@ -12,6 +12,7 @@ export const getSystemInfo = async () => {
     await getCurrentLoad(cpu);
     const temp = await si.cpuTemperature();
     const disks = await getDiskInfo();
+    const os = await si.osInfo();
 
     return {
         cpu,
@@ -19,6 +20,7 @@ export const getSystemInfo = async () => {
         memory,
         temp,
         disks,
+        os,
     };
 };
 
