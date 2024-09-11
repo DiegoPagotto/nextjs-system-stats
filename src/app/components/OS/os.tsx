@@ -6,13 +6,16 @@ interface OSComponentProps {
 
 const OSComponent = ({ osInfo }: OSComponentProps) => {
     return (
-        <div>
-            <div className="text-center text-white font-bold text-xl">
-                {osInfo.codename} ({osInfo.release})
-            </div>
-            <div className="text-center text-white font-bold text-xl">
-                {osInfo.arch}
-            </div>
+        <div className="flex justify-around gap-2">
+            <p>
+                <b>Arch</b>: {osInfo.arch}
+            </p>
+            <p>
+                <b>Codename</b>: {osInfo.codename}
+            </p>
+            <p>
+                <b>Release</b>: {osInfo.release}
+            </p>
         </div>
     );
 };
