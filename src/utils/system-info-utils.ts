@@ -13,7 +13,7 @@ export const getSystemInfo = async () => {
     const temp = await si.cpuTemperature();
     const disks = await getDiskInfo();
     const os = await si.osInfo();
-    const uptime = await si.time().uptime;
+    const uptimeInSeconds = await si.time().uptime;
 
     return {
         cpu,
@@ -22,7 +22,7 @@ export const getSystemInfo = async () => {
         temp,
         disks,
         os,
-        uptime,
+        uptimeInSeconds,
     };
 };
 
