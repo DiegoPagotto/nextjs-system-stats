@@ -10,6 +10,7 @@ import toast from 'react-hot-toast';
 import DiskComponent from '../Disk/disk-body';
 import { Emojis } from '@/app/enums/emojis';
 import OSComponent from '../OS/os';
+import { getFormattedUptime } from '@/utils/calculation-utils';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -42,6 +43,12 @@ const SystemInfoCard = () => {
                     <div className="px-6 py-4">
                         <div className="font-bold text-xl mb-2 text-center">
                             {Emojis.Stats} System Stats
+                        </div>
+                        <div className="text-center shadow-sm">
+                            <p className="text-sm font-light text-gray-400 italic">
+                                <b>{Emojis.Uptime} Uptime</b>:{' '}
+                                {getFormattedUptime(systemInfo.uptimeInSeconds)}
+                            </p>
                         </div>
                     </div>
                     <SystemComponent title="CPU" emoji={Emojis.CPU}>

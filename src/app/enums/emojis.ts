@@ -4,4 +4,5 @@ export enum Emojis {
     Disk = '💾',
     Stats = '📊',
     OS = '🖥️',
+    Uptime = '🕒',
 }
