@@ -8,4 +8,5 @@ export interface SystemInfo {
     memory: memory;
     disks: disk[];
     os: os;
+    uptimeInSeconds: number;
 }
