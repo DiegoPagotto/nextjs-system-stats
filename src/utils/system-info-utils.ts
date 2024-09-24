@@ -14,6 +14,8 @@ export const getSystemInfo = async () => {
     const disks = await getDiskInfo();
     const os = await si.osInfo();
     const uptimeInSeconds = await si.time().uptime;
+    const networkInterfaces = await si.networkInterfaces();
+    const networkStats = await si.networkStats();
 
     return {
         cpu,
@@ -23,6 +25,8 @@ export const getSystemInfo = async () => {
         disks,
         os,
         uptimeInSeconds,
+        networkInterfaces,
+        networkStats,
     };
 };
 
