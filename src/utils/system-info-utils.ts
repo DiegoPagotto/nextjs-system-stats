@@ -7,6 +7,7 @@ import { bytesToGigaBytes } from './calculation-utils';
 export const getSystemInfo = async () => {
     const cpu = await getCpuInfo();
     const memory = await getMemoryInfo();
+    const network = await getNetworkInfo();
 
     const gpu = await si.graphics();
     await getCurrentLoad(cpu);
@@ -14,8 +15,6 @@ export const getSystemInfo = async () => {
     const disks = await getDiskInfo();
     const os = await si.osInfo();
     const uptimeInSeconds = await si.time().uptime;
-    const networkInterfaces = await si.networkInterfaces();
-    const networkStats = await si.networkStats();
 
     return {
         cpu,
@@ -25,8 +24,7 @@ export const getSystemInfo = async () => {
         disks,
         os,
         uptimeInSeconds,
-        networkInterfaces,
-        networkStats,
+        network,
     };
 };
 
@@ -77,4 +75,13 @@ const getDiskInfo = async () => {
             bytesToGigaBytes(fsSize[index]?.size - fsSize[index]?.used) || 0,
         mount: fsSize[index]?.mount || '',
     })) as unknown as disk[];
+};
+
+const getNetworkInfo = async () => {
+    const networkInterfaces = await si.networkInterfaces();
+    const networkStats = await si.networkStats();
+    return {
+        interfaces: networkInterfaces,
+        stats: networkStats,
+    };
 };
