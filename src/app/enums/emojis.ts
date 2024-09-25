@@ -5,4 +5,5 @@ export enum Emojis {
     Stats = '📊',
     OS = '🖥️',
     Uptime = '🕒',
+    Network = '🌐',
 }
