@@ -11,6 +11,7 @@ import DiskComponent from '../Disk/disk-body';
 import { Emojis } from '@/app/enums/emojis';
 import OSComponent from '../OS/os';
 import { getFormattedUptime } from '@/utils/calculation-utils';
+import NetworkComponent from '../Network/network-info.card';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -62,6 +63,9 @@ const SystemInfoCard = () => {
                     </SystemComponent>
                     <SystemComponent title="OS" emoji={Emojis.OS}>
                         <OSComponent osInfo={systemInfo.os} />
+                    </SystemComponent>
+                    <SystemComponent title="Network" emoji={Emojis.Network}>
+                        <NetworkComponent networkData={systemInfo.network} />
                     </SystemComponent>
                 </>
             )}
