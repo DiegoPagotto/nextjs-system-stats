@@ -36,40 +36,46 @@ const SystemInfoCard = () => {
     }, []);
 
     return (
-        <div className="w-full max-w-4xl md:max-w-3xl sm:max-w-2xl sm:w-11/12 rounded-xl overflow-hidden shadow-lg bg-slate-900 mx-auto">
-            {!systemInfo ? (
-                <Loading />
-            ) : (
-                <>
-                    <div className="px-6 py-4">
-                        <div className="font-bold text-xl mb-2 text-center">
-                            {Emojis.Stats} System Stats
-                        </div>
-                        <div className="text-center shadow-sm">
-                            <p className="text-sm font-light text-gray-400 italic">
-                                <b>{Emojis.Uptime} Uptime</b>:{' '}
-                                {getFormattedUptime(systemInfo.uptimeInSeconds)}
-                            </p>
-                        </div>
+        <>
+            <div className="px-6 py-4 mb-4 bg-slate-900 rounded-xl min-w-56">
+                <div className="font-bold text-xl mb-2 text-center">
+                    {Emojis.Stats} System Stats
+                </div>
+                {systemInfo && (
+                    <div className="text-center shadow-sm">
+                        <p className="text-sm font-light text-gray-400 italic">
+                            <b>{Emojis.Uptime} Uptime</b>:{' '}
+                            {getFormattedUptime(systemInfo.uptimeInSeconds)}
+                        </p>
                     </div>
-                    <SystemComponent title="CPU" emoji={Emojis.CPU}>
-                        <CPUComponent cpuInfo={systemInfo.cpu} />
-                    </SystemComponent>
-                    <SystemComponent title="Memory" emoji={Emojis.Memory}>
-                        <MemoryComponent memoryInfo={systemInfo.memory} />
-                    </SystemComponent>
-                    <SystemComponent title="Disk" emoji={Emojis.Disk}>
-                        <DiskComponent disks={systemInfo.disks} />
-                    </SystemComponent>
-                    <SystemComponent title="OS" emoji={Emojis.OS}>
-                        <OSComponent osInfo={systemInfo.os} />
-                    </SystemComponent>
-                    <SystemComponent title="Network" emoji={Emojis.Network}>
-                        <NetworkComponent networkData={systemInfo.network} />
-                    </SystemComponent>
-                </>
-            )}
-        </div>
+                )}
+            </div>
+            <div className="w-full max-w-4xl md:max-w-3xl sm:max-w-2xl sm:w-11/12 rounded-xl overflow-hidden shadow-lg bg-slate-900 mx-auto">
+                {!systemInfo ? (
+                    <Loading />
+                ) : (
+                    <>
+                        <SystemComponent title="CPU" emoji={Emojis.CPU}>
+                            <CPUComponent cpuInfo={systemInfo.cpu} />
+                        </SystemComponent>
+                        <SystemComponent title="Memory" emoji={Emojis.Memory}>
+                            <MemoryComponent memoryInfo={systemInfo.memory} />
+                        </SystemComponent>
+                        <SystemComponent title="Disk" emoji={Emojis.Disk}>
+                            <DiskComponent disks={systemInfo.disks} />
+                        </SystemComponent>
+                        <SystemComponent title="OS" emoji={Emojis.OS}>
+                            <OSComponent osInfo={systemInfo.os} />
+                        </SystemComponent>
+                        <SystemComponent title="Network" emoji={Emojis.Network}>
+                            <NetworkComponent
+                                networkData={systemInfo.network}
+                            />
+                        </SystemComponent>
+                    </>
+                )}
+            </div>
+        </>
     );
 };
 export default SystemInfoCard;
