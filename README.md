@@ -42,6 +42,34 @@ Para rodar o projeto localmente, siga os passos abaixo:
 
 Após iniciar o servidor de desenvolvimento, abra o navegador e acesse `http://localhost:3000`. Você verá a interface do **NextJS System Stats** exibindo as informações do sistema em tempo real.
 
+## 📚 Documentação
+
+Você pode encontrar os diagramas da aplicação no diretório `docs/diagrams`
+
+### Fluxo SSE
+
+```mermaid
+sequenceDiagram
+    participant Client
+    box Server
+        participant SSE
+        participant SystemInfo
+        participant SystemInfoUtils
+    end
+
+    Client ->>+ SSE: HTTP GET /system-info-sse
+
+    loop
+        SSE ->>+ SystemInfo: getSystemInfo()
+        SystemInfo ->>+ SystemInfoUtils: readCurrentInfo()
+        SystemInfoUtils -->>- SystemInfo: currentSystemInfo
+        SystemInfo -->- SSE: systemInfo
+        SSE --> Client: systemInfo
+    end
+
+    SSE -->>- Client: Closing SSE socket
+```
+
 ## 📡 Funcionalidades
 
 -   **Monitoramento em Tempo Real**: Veja as métricas do sistema atualizadas em tempo real.
