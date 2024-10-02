@@ -10,8 +10,8 @@ import toast from 'react-hot-toast';
 import DiskComponent from '../Disk/disk-body';
 import { Emojis } from '@/app/enums/emojis';
 import OSComponent from '../OS/os';
-import { getFormattedUptime } from '@/utils/calculation-utils';
 import NetworkComponent from '../Network/network-info.card';
+import Header from '../Header/header';
 
 const SystemInfoCard = () => {
     const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -37,19 +37,7 @@ const SystemInfoCard = () => {
 
     return (
         <>
-            <div className="px-6 py-4 mb-4 bg-slate-900 rounded-xl min-w-56">
-                <div className="font-bold text-xl mb-2 text-center">
-                    {Emojis.Stats} System Stats
-                </div>
-                {systemInfo && (
-                    <div className="text-center shadow-sm">
-                        <p className="text-sm font-light text-gray-400 italic">
-                            <b>{Emojis.Uptime} Uptime</b>:{' '}
-                            {getFormattedUptime(systemInfo.uptimeInSeconds)}
-                        </p>
-                    </div>
-                )}
-            </div>
+            <Header systemInfo={systemInfo} />
             <div className="w-full max-w-4xl md:max-w-3xl sm:max-w-2xl sm:w-11/12 rounded-xl overflow-hidden shadow-lg bg-slate-900 mx-auto">
                 {!systemInfo ? (
                     <Loading />
