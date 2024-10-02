@@ -20,7 +20,6 @@ const SystemInfoCard = () => {
         const eventSource = new EventSource('/api/system-info-sse');
 
         eventSource.onmessage = (event) => {
-            console.log('Received system info', event);
             toast.success('System info updated');
             setSystemInfo(JSON.parse(event.data));
         };
