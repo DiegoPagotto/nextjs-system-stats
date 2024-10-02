@@ -10,7 +10,6 @@ sequenceDiagram
     CPU->>CPU: si.cpuTemperature()
     CPU-->>SystemInfo: return cpu info
 
-
     SystemInfo->>Disk: getDiskInfo()
     participant Disk
     Disk-->>SystemInfo: return disk info
