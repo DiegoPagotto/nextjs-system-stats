@@ -13,14 +13,14 @@ const Header = ({ systemInfo }: HeaderProps) => {
                 {Emojis.Stats} System Stats
             </div>
             <div className="text-center shadow-sm">
-                <p className="text-sm font-light text-gray-400 italic">
-                    <b>{Emojis.Uptime} Uptime</b>:{' '}
-                    {systemInfo ? (
-                        getFormattedUptime(systemInfo.uptimeInSeconds)
-                    ) : (
-                        <div className="animate-pulse h-5 bg-slate-700 rounded"></div>
-                    )}
-                </p>
+                {systemInfo ? (
+                    <p className="text-sm font-light text-gray-400 italic">
+                        <b>{Emojis.Uptime} Uptime</b>: {` `}
+                        {getFormattedUptime(systemInfo.uptimeInSeconds)}
+                    </p>
+                ) : (
+                    <div className="animate-pulse h-5 bg-slate-700 rounded"></div>
+                )}
             </div>
         </div>
     );
